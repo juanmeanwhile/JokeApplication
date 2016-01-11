@@ -42,6 +42,8 @@ public class GetJokeAsyncTask extends AsyncTask<Void, Void, String> {
 
     @Override
     public void onPostExecute(String result) {
-        mListener.onJokeReceived(result==null?null:new Joke(result));
+        if (mListener != null) {
+            mListener.onJokeReceived(result == null ? null : new Joke(result));
+        }
     }
 }
